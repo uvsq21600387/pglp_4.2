@@ -4,27 +4,34 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Interpreteur {
-	public Map<String, Command> commands;
+	public Map<String, GenericCommand> commands;
 	
 	private Interpreteur() {
-		commands = new HashMap<String, Command>();
+		commands = new HashMap<String, GenericCommand>();
 	}
 	
-	public void addCommand(String name, Command command) {
+	public void addCommand(final String name, final GenericCommand command) {
 		this.commands.put(name, command);
 	}
 	
-	public void executeCommand(String name) {
+	public void executeCommand(final String name) throws Exception {
 		if(commands.containsKey(name)) {
-			commands.get(name).apply();
+			try {
+				commands.get(name).apply();
+			} catch (Exception e) {
+				System.err.println("La commande a échouée");
+			}
+		}
+		else {
+			throw new Exception();
 		}
 	}
 	
-	public static Interpreteur init() {
+	public static Interpreteur init(final Undo u) {
 		Interpreteur i = new Interpreteur();
 		
-		//i.addCommand("undo", );
-		//i.addCommand("quit", );
+		i.addCommand("undo", u);
+		i.addCommand("quit", new Quit());
 		
 		return i;
 	}

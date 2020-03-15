@@ -12,8 +12,10 @@ public final class App {
 	/**
 	 * début du programme.
 	 * @param args arguments donnés au démarrage de l'application
+	 * @throws Exception erreur durant le calcul
 	 */
-    public static void main(final String[] args) {
-        System.out.println("Hello World!");
+    public static void main(final String[] args) throws Exception {
+        SaisieRPN saisie = new SaisieRPN();
+        saisie.calcul();
     }
 }
