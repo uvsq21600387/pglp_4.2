@@ -1,18 +1,17 @@
 package mathieu.pglp_4_2;
 
 /**
- * Hello world!
+ * CalculatriceRPN pour faire des calculs.
  */
-public final class App {
+public enum CalculatriceRPN {
 	/**
-	 * constructeur de la classe App.
+	 * calculatrice.
 	 */
-	private App() {
-	}
+	CALCULATRICE;
 	/**
 	 * début du programme.
 	 * @param args arguments donnés au démarrage de l'application
-	 * @throws Exception erreur durant le calcul
+	 * @throws Exception erreur dans le résultat
 	 */
     public static void main(final String[] args) throws Exception {
         SaisieRPN saisie = new SaisieRPN();
