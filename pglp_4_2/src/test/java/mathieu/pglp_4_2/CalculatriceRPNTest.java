@@ -1,7 +1,5 @@
 package mathieu.pglp_4_2;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
